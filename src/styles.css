@@ -117,21 +117,6 @@ main { display: grid; gap: 14px; }
   justify-content: space-between;
 }
 .question-card, .panel, .editor, .stats-table { padding: 16px; }
-.tag-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-.tag-row span {
-  border: 1px solid #d5ddd3;
-  border-radius: 999px;
-  padding: 4px 8px;
-  background: #f7f8f5;
-  color: #4d5b55;
-  font-size: 12px;
-  font-weight: 700;
-}
 .question-card h2 { margin-bottom: 16px; }
 .choice-list {
   display: grid;

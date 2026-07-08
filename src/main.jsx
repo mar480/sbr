@@ -139,9 +139,6 @@ function QuestionCard({ question, onAttempt }) {
 
   return (
     <article className="question-card">
-      <div className="tag-row">
-        {[question.standard, question.topic, question.category, question.type].filter(Boolean).map((tag) => <span key={tag}>{tag}</span>)}
-      </div>
       <h2>{question.question}</h2>
       {question.type === "mcq" && (
         <div className="choice-list">
