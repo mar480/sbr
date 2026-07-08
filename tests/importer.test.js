@@ -25,4 +25,23 @@ describe("parseSpreadsheet", () => {
     const rows = await parseSpreadsheet(csv, "questions.csv");
     expect(rows[0].type).toBe("standard_match");
   });
+
+  it("parses multi-part questions into structured parts", async () => {
+    const csv = Buffer.from("question,type,answer,explanation,part1_label,part1_type,part1_choices,part1_answer,part2_label,part2_type,part2_answer,match_mode\nA provision requires a present ____ and probable ____.,multi_part,,Know the criteria.,First gap,dropdown,asset|obligation,obligation,Second gap,text,outflow,variants\n");
+    const rows = await parseSpreadsheet(csv, "questions.csv");
+    expect(rows[0].type).toBe("multi_part");
+    expect(JSON.parse(rows[0].parts)).toHaveLength(2);
+  });
+
+  it("validates incomplete multi-part dropdowns", async () => {
+    const csv = Buffer.from("question,type,answer,explanation,part1_label,part1_type,part1_answer,part2_label,part2_type,part2_answer\nA provision requires two things.,multi_part,,Know the criteria.,First gap,dropdown,obligation,Second gap,text,outflow\n");
+    await expect(parseSpreadsheet(csv, "questions.csv")).rejects.toThrow(/part1_choices/);
+  });
+
+  it("accepts multi-select questions", async () => {
+    const csv = Buffer.from("question,type,choices,answer,explanation\nWhich are criteria?,multi_select,Present obligation|Probable outflow|Future plan,Present obligation|Probable outflow,Know the criteria.\n");
+    const rows = await parseSpreadsheet(csv, "questions.csv");
+    expect(rows[0].type).toBe("multi_select");
+    expect(rows[0].answer).toBe("Present obligation|Probable outflow");
+  });
 });

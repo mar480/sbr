@@ -136,6 +136,12 @@ main { display: grid; gap: 14px; }
 }
 .choice-list input { width: 18px; min-height: 18px; }
 .answer-input { margin-bottom: 12px; }
+.part-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.part-list label { margin: 0; }
 .feedback {
   margin-top: 14px;
   padding: 12px;
@@ -146,6 +152,12 @@ main { display: grid; gap: 14px; }
 .feedback.correct { background: #eaf7ed; border-color: #abd8b4; }
 .feedback.incorrect { background: #fff0ea; border-color: #e6b9a6; }
 .feedback p { margin: 6px 0; }
+.result-list {
+  display: grid;
+  gap: 4px;
+  margin: 8px 0;
+}
+.result-list p { margin: 0; }
 .summary-band {
   display: grid;
   grid-template-columns: 1fr auto 1fr;

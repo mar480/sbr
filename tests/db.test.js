@@ -13,6 +13,7 @@ const question = {
   category: "Recognition",
   choices: "",
   accepted_answers: "",
+  parts: "[]",
   match_mode: "strict",
   difficulty: "",
   active: 1
