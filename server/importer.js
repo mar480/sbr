@@ -4,7 +4,7 @@ import readXlsxFile from "read-excel-file/node";
 import { splitList } from "./answer.js";
 
 const REQUIRED_COLUMNS = ["question", "type", "answer", "explanation"];
-const QUESTION_TYPES = new Set(["mcq", "dropdown", "text", "self_mark", "calculation"]);
+const QUESTION_TYPES = new Set(["mcq", "dropdown", "text", "self_mark", "calculation", "standard_match"]);
 const MATCH_MODES = new Set(["strict", "variants", "self_mark"]);
 
 export function makeQuestionId(row) {
@@ -58,7 +58,8 @@ export async function parseSpreadsheet(buffer, filename = "questions.csv") {
   let rows;
 
   if (lower.endsWith(".xlsx") || lower.endsWith(".xls")) {
-    const table = await readXlsxFile(buffer);
+    const workbookData = await readXlsxFile(buffer);
+    const table = Array.isArray(workbookData?.[0]?.data) ? workbookData[0].data : workbookData;
     const headers = (table[0] || []).map((cell) => String(cell ?? "").trim());
     rows = table.slice(1).map((values) => {
       const item = {};

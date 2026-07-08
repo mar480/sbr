@@ -28,4 +28,16 @@ describe("markAnswer", () => {
     expect(markAnswer({ ...base, type: "self_mark", match_mode: "self_mark" }, "").requiresSelfMark).toBe(true);
     expect(markAnswer({ ...base, type: "self_mark", match_mode: "self_mark" }, "", false).correct).toBe(false);
   });
+
+  it("marks standard number/name matching as typed recall", () => {
+    const question = {
+      ...base,
+      type: "standard_match",
+      answer: "Revenue from Contracts with Customers",
+      accepted_answers: "Revenue from contracts with customers|Revenue from contracts",
+      match_mode: "variants"
+    };
+    expect(markAnswer(question, "revenue from contracts with customers").correct).toBe(true);
+    expect(markAnswer(question, "IFRS 15").correct).toBe(false);
+  });
 });

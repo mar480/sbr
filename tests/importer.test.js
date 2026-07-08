@@ -19,4 +19,10 @@ describe("parseSpreadsheet", () => {
     const csv = Buffer.from("question,type,answer,explanation\nBad,essay,x,y\n");
     await expect(parseSpreadsheet(csv, "questions.csv")).rejects.toThrow(/Row 2/);
   });
+
+  it("accepts standard matching questions", async () => {
+    const csv = Buffer.from("question,type,answer,explanation\nIFRS 15,standard_match,Revenue from Contracts with Customers,IFRS 15 is **Revenue from Contracts with Customers**.\n");
+    const rows = await parseSpreadsheet(csv, "questions.csv");
+    expect(rows[0].type).toBe("standard_match");
+  });
 });

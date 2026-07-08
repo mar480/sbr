@@ -77,6 +77,36 @@ const sampleRows = [
     match_mode: "variants",
     difficulty: "core",
     active: "true"
+  },
+  {
+    id: "ifrs15-standard-name",
+    standard: "IFRS 15",
+    topic: "Standards",
+    subtopic: "Standard names",
+    category: "Classification",
+    type: "standard_match",
+    question: "IFRS 15",
+    answer: "Revenue from Contracts with Customers",
+    accepted_answers: "Revenue from contracts with customers|Revenue from contracts",
+    explanation: "IFRS 15 is **Revenue from Contracts with Customers**.",
+    match_mode: "variants",
+    difficulty: "core",
+    active: "true"
+  },
+  {
+    id: "ias37-standard-number",
+    standard: "IAS 37",
+    topic: "Standards",
+    subtopic: "Standard names",
+    category: "Classification",
+    type: "standard_match",
+    question: "Provisions, Contingent Liabilities and Contingent Assets",
+    answer: "IAS 37",
+    accepted_answers: "International Accounting Standard 37",
+    explanation: "**IAS 37** is Provisions, Contingent Liabilities and Contingent Assets.",
+    match_mode: "variants",
+    difficulty: "core",
+    active: "true"
   }
 ].map(normalizeQuestionRow);
 

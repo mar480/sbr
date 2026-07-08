@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
-const QUESTION_TYPES = ["mcq", "dropdown", "text", "self_mark", "calculation"];
+const QUESTION_TYPES = ["mcq", "dropdown", "text", "self_mark", "calculation", "standard_match"];
 const CATEGORIES = ["Recognition", "Measurement", "Presentation", "Disclosure", "Classification"];
 
 async function api(path, options = {}) {
@@ -159,7 +159,7 @@ function QuestionCard({ question, onAttempt }) {
           {choices.map((choice) => <option key={choice} value={choice}>{choice}</option>)}
         </select>
       )}
-      {(question.type === "text" || question.type === "calculation") && (
+      {(question.type === "text" || question.type === "calculation" || question.type === "standard_match") && (
         <input className="answer-input" value={answer} onChange={(event) => setAnswer(event.target.value)} placeholder="Type your answer" />
       )}
       {question.type === "self_mark" ? (
