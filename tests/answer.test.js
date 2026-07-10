@@ -40,4 +40,31 @@ describe("markAnswer", () => {
     expect(markAnswer(question, "revenue from contracts with customers").correct).toBe(true);
     expect(markAnswer(question, "IFRS 15").correct).toBe(false);
   });
+
+  it("marks multi-part questions all-or-nothing with accepted variants", () => {
+    const question = {
+      ...base,
+      type: "multi_part",
+      match_mode: "variants",
+      parts: JSON.stringify([
+        { label: "First gap", type: "dropdown", choices: "asset|obligation", answer: "obligation", accepted_answers: "" },
+        { label: "Second gap", type: "text", choices: "", answer: "outflow", accepted_answers: "probable outflow" }
+      ])
+    };
+
+    expect(markAnswer(question, { 0: "obligation", 1: "probable outflow" }).correct).toBe(true);
+    expect(markAnswer(question, { 0: "asset", 1: "probable outflow" }).correct).toBe(false);
+  });
+
+  it("marks multi-select answers as order-insensitive exact sets", () => {
+    const question = {
+      ...base,
+      type: "multi_select",
+      choices: "Present obligation|Probable outflow|Reliable estimate|Future plan",
+      answer: "Present obligation|Probable outflow|Reliable estimate"
+    };
+
+    expect(markAnswer(question, ["Reliable estimate", "Present obligation", "Probable outflow"]).correct).toBe(true);
+    expect(markAnswer(question, ["Reliable estimate", "Present obligation", "Probable outflow", "Future plan"]).correct).toBe(false);
+  });
 });

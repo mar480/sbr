@@ -13,6 +13,7 @@ const QUESTION_FIELDS = [
   "category",
   "choices",
   "accepted_answers",
+  "parts",
   "match_mode",
   "difficulty",
   "active"
@@ -40,6 +41,7 @@ export function migrate(db) {
       category TEXT DEFAULT '',
       choices TEXT DEFAULT '',
       accepted_answers TEXT DEFAULT '',
+      parts TEXT DEFAULT '[]',
       match_mode TEXT DEFAULT 'strict',
       difficulty TEXT DEFAULT '',
       active INTEGER DEFAULT 1,
@@ -63,6 +65,11 @@ export function migrate(db) {
       FOREIGN KEY(question_id) REFERENCES questions(id)
     );
   `);
+
+  const columns = db.prepare("PRAGMA table_info(questions)").all().map((column) => column.name);
+  if (!columns.includes("parts")) {
+    db.prepare("ALTER TABLE questions ADD COLUMN parts TEXT DEFAULT '[]'").run();
+  }
 }
 
 function parseManualEdits(value) {
@@ -80,7 +87,8 @@ function rowToQuestion(row) {
     ...row,
     active: Boolean(row.active),
     choices: row.choices || "",
-    accepted_answers: row.accepted_answers || ""
+    accepted_answers: row.accepted_answers || "",
+    parts: row.parts || "[]"
   };
 }
 
@@ -123,6 +131,7 @@ export function upsertImportedQuestions(db, questions, { overwriteEditedFields =
       category = @category,
       choices = @choices,
       accepted_answers = @accepted_answers,
+      parts = @parts,
       match_mode = @match_mode,
       difficulty = @difficulty,
       active = @active,
@@ -189,7 +198,7 @@ export function createAttempt(db, { learnerId, question, submittedAnswer, correc
   `).run({
     question_id: question.id,
     learner_id: learnerId,
-    submitted_answer: String(submittedAnswer ?? ""),
+    submitted_answer: typeof submittedAnswer === "object" ? JSON.stringify(submittedAnswer ?? "") : String(submittedAnswer ?? ""),
     correct: correct ? 1 : 0,
     standard: question.standard,
     topic: question.topic,

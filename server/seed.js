@@ -107,6 +107,43 @@ const sampleRows = [
     match_mode: "variants",
     difficulty: "core",
     active: "true"
+  },
+  {
+    id: "ias37-multi-criteria-gaps",
+    standard: "IAS 37",
+    topic: "Provisions",
+    subtopic: "Recognition criteria",
+    category: "Recognition",
+    type: "multi_part",
+    question: "A provision requires a present ____, a probable ____, and a reliable estimate.",
+    answer: "",
+    explanation: "IAS 37 recognition needs a **present obligation**, a **probable outflow**, and a reliable estimate.",
+    part1_label: "First gap",
+    part1_type: "dropdown",
+    part1_choices: "asset|obligation|liability|expense",
+    part1_answer: "obligation",
+    part2_label: "Second gap",
+    part2_type: "text",
+    part2_answer: "outflow",
+    part2_accepted_answers: "probable outflow|outflow of economic benefits",
+    match_mode: "variants",
+    difficulty: "core",
+    active: "true"
+  },
+  {
+    id: "ias37-recognition-pick-all",
+    standard: "IAS 37",
+    topic: "Provisions",
+    subtopic: "Recognition criteria",
+    category: "Recognition",
+    type: "multi_select",
+    question: "Which are IAS 37 provision recognition criteria?",
+    choices: "Present obligation|Probable outflow|Reliable estimate|Future business plan",
+    answer: "Present obligation|Probable outflow|Reliable estimate",
+    explanation: "The recognition criteria are **present obligation**, **probable outflow**, and **reliable estimate**.",
+    match_mode: "strict",
+    difficulty: "core",
+    active: "true"
   }
 ].map(normalizeQuestionRow);
 

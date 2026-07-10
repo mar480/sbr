@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
-const QUESTION_TYPES = ["mcq", "dropdown", "text", "self_mark", "calculation", "standard_match"];
+const QUESTION_TYPES = ["mcq", "dropdown", "text", "self_mark", "calculation", "standard_match", "multi_part", "multi_select"];
 const CATEGORIES = ["Recognition", "Measurement", "Presentation", "Disclosure", "Classification"];
 
 async function api(path, options = {}) {
@@ -29,6 +29,31 @@ function renderRichText(value) {
     if (part.startsWith("**") && part.endsWith("**")) return <strong key={index}>{part.slice(2, -2)}</strong>;
     return <React.Fragment key={index}>{part}</React.Fragment>;
   });
+}
+
+function parseParts(value) {
+  try {
+    const parsed = JSON.parse(value || "[]");
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function initialAnswerFor(question) {
+  if (question.type === "multi_part") return {};
+  if (question.type === "multi_select") return [];
+  return "";
+}
+
+function isAnswerReady(question, answer) {
+  if (question.type === "self_mark") return true;
+  if (question.type === "multi_part") {
+    const parts = parseParts(question.parts);
+    return parts.length > 0 && parts.every((_, index) => String(answer?.[index] ?? "").trim());
+  }
+  if (question.type === "multi_select") return Array.isArray(answer) && answer.length > 0;
+  return Boolean(answer);
 }
 
 function useAuth() {
@@ -120,11 +145,12 @@ function FilterBar({ questions, filters, setFilters }) {
 }
 
 function QuestionCard({ question, onAttempt }) {
-  const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState(() => initialAnswerFor(question));
   const [result, setResult] = useState(null);
   const choices = splitList(question.choices);
+  const parts = parseParts(question.parts);
   useEffect(() => {
-    setAnswer("");
+    setAnswer(initialAnswerFor(question));
     setResult(null);
   }, [question.id]);
 
@@ -135,6 +161,19 @@ function QuestionCard({ question, onAttempt }) {
     });
     setResult(response);
     if (!response.requiresSelfMark) onAttempt?.();
+  }
+
+  function setPartAnswer(index, value) {
+    setAnswer((current) => ({ ...(current || {}), [index]: value }));
+  }
+
+  function toggleSelected(choice) {
+    setAnswer((current) => {
+      const selected = new Set(Array.isArray(current) ? current : []);
+      if (selected.has(choice)) selected.delete(choice);
+      else selected.add(choice);
+      return [...selected];
+    });
   }
 
   return (
@@ -159,10 +198,41 @@ function QuestionCard({ question, onAttempt }) {
       {(question.type === "text" || question.type === "calculation" || question.type === "standard_match") && (
         <input className="answer-input" value={answer} onChange={(event) => setAnswer(event.target.value)} placeholder="Type your answer" />
       )}
+      {question.type === "multi_part" && (
+        <div className="part-list">
+          {parts.map((part, index) => (
+            <label key={`${question.id}-part-${index}`}>
+              {part.label || `Part ${index + 1}`}
+              {part.type === "dropdown" ? (
+                <select value={answer?.[index] || ""} onChange={(event) => setPartAnswer(index, event.target.value)}>
+                  <option value="">Choose...</option>
+                  {splitList(part.choices).map((choice) => <option key={choice} value={choice}>{choice}</option>)}
+                </select>
+              ) : (
+                <input value={answer?.[index] || ""} onChange={(event) => setPartAnswer(index, event.target.value)} placeholder="Type your answer" />
+              )}
+            </label>
+          ))}
+        </div>
+      )}
+      {question.type === "multi_select" && (
+        <div className="choice-list">
+          {choices.map((choice) => (
+            <label key={choice}>
+              <input
+                type="checkbox"
+                checked={Array.isArray(answer) && answer.includes(choice)}
+                onChange={() => toggleSelected(choice)}
+              />
+              {choice}
+            </label>
+          ))}
+        </div>
+      )}
       {question.type === "self_mark" ? (
         <button onClick={() => submit(null)}>Reveal answer</button>
       ) : (
-        <button onClick={() => submit()} disabled={!answer}>Check</button>
+        <button onClick={() => submit()} disabled={!isAnswerReady(question, answer)}>Check</button>
       )}
       {result && (
         <section className={`feedback ${result.correct ? "correct" : "incorrect"}`}>
@@ -174,7 +244,25 @@ function QuestionCard({ question, onAttempt }) {
           ) : (
             <p>{result.correct ? "Correct." : "Not quite."}</p>
           )}
-          <p><strong>Answer:</strong> {renderRichText(question.answer)}</p>
+          {question.answer && <p><strong>Answer:</strong> {renderRichText(question.answer)}</p>}
+          {result.partResults && (
+            <div className="result-list">
+              {result.partResults.map((part) => (
+                <p key={part.index}>
+                  <strong>{part.label}:</strong> {part.correct ? "Correct" : "Missed"}; answer: {renderRichText(part.answer)}
+                </p>
+              ))}
+            </div>
+          )}
+          {result.optionResults && (
+            <div className="result-list">
+              {result.optionResults.map((option) => (
+                <p key={option.choice}>
+                  <strong>{option.choice}:</strong> {option.expected ? "Should be selected" : "Should not be selected"}
+                </p>
+              ))}
+            </div>
+          )}
           <p>{renderRichText(question.explanation)}</p>
         </section>
       )}
@@ -329,6 +417,7 @@ function EditQuestion({ id, back }) {
         <label>explanation<textarea value={question.explanation} onChange={(event) => setField("explanation", event.target.value)} /></label>
         <label>choices<input value={question.choices || ""} onChange={(event) => setField("choices", event.target.value)} /></label>
         <label>accepted answers<input value={question.accepted_answers || ""} onChange={(event) => setField("accepted_answers", event.target.value)} /></label>
+        <label>parts JSON<textarea value={question.parts || "[]"} onChange={(event) => setField("parts", event.target.value)} /></label>
         <label>difficulty<input value={question.difficulty || ""} onChange={(event) => setField("difficulty", event.target.value)} /></label>
         <label className="checkbox-row"><input type="checkbox" checked={Boolean(question.active)} onChange={(event) => setField("active", event.target.checked)} /> Active</label>
         <button>Save</button>
