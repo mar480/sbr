@@ -148,7 +148,7 @@ function FilterBar({ questions, filters, setFilters }) {
     return [...new Set(values)].sort();
   };
 
-  const update = (field, value) => setFilters((current) => ({ ...current, [field]: value }));
+  const update = (field, value) => setFilters((current) => ({ ...current, [field]: value }));}
 
 function QuestionCard({ question, onAttempt }) {
   const [answer, setAnswer] = useState(() => initialAnswerFor(question));
