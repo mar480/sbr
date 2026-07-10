@@ -3,7 +3,26 @@ import { createRoot } from "react-dom/client";
 import "./styles.css";
 
 const QUESTION_TYPES = ["mcq", "dropdown", "text", "self_mark", "calculation", "standard_match", "multi_part", "multi_select"];
-const CATEGORIES = ["Recognition", "Measurement", "Presentation", "Disclosure", "Classification"];
+
+const CATEGORIES = [
+  "Application",
+  "Classification",
+  "Definition",
+  "Disclosure",
+  "Measurement",
+  "Presentation",
+  "Recognition",
+  "Standard",
+  "Standards recall"
+];
+
+const CATEGORY_LABELS = new Map(CATEGORIES.map((category) => [category.toLowerCase(), category]));
+
+function normalizeCategory(value) {
+  const trimmed = String(value ?? "").trim();
+  const key = trimmed.toLowerCase().replace(/\s+/g, " ");
+  return CATEGORY_LABELS.get(key) || trimmed;
+}
 
 async function api(path, options = {}) {
   const response = await fetch(path, {
@@ -117,32 +136,19 @@ function Shell({ page, setPage, children }) {
 }
 
 function FilterBar({ questions, filters, setFilters }) {
-  const options = (field) => [...new Set(questions.map((q) => q[field]).filter(Boolean))].sort();
+  const options = (field) => {
+    const values = questions
+      .map((q) => (field === "category" ? normalizeCategory(q[field]) : q[field]))
+      .filter(Boolean);
+
+    if (field === "category") {
+      return [...new Set([...CATEGORIES, ...values])].sort();
+    }
+
+    return [...new Set(values)].sort();
+  };
+
   const update = (field, value) => setFilters((current) => ({ ...current, [field]: value }));
-  return (
-    <section className="filters">
-      {["standard", "topic", "subtopic", "category", "type"].map((field) => (
-        <label key={field}>
-          {field}
-          <select value={filters[field] || ""} onChange={(event) => update(field, event.target.value)}>
-            <option value="">All</option>
-            {(field === "type" ? QUESTION_TYPES : options(field)).map((option) => (
-              <option key={option} value={option}>{option}</option>
-            ))}
-          </select>
-        </label>
-      ))}
-      <label className="checkbox-row">
-        <input
-          type="checkbox"
-          checked={Boolean(filters.weakOnly)}
-          onChange={(event) => update("weakOnly", event.target.checked)}
-        />
-        Weak only
-      </label>
-    </section>
-  );
-}
 
 function QuestionCard({ question, onAttempt }) {
   const [answer, setAnswer] = useState(() => initialAnswerFor(question));
@@ -287,8 +293,9 @@ function Practice({ goEdit }) {
   const weakLabels = useMemo(() => new Set((stats?.byTopic || []).filter((row) => row.attempts >= 1 && row.accuracy < 70).map((row) => row.label)), [stats]);
   const filtered = questions.filter((question) => {
     for (const field of ["standard", "topic", "subtopic", "category", "type"]) {
-      if (filters[field] && question[field] !== filters[field]) return false;
-    }
+      const questionValue = field === "category" ? normalizeCategory(question[field]) : question[field];
+      if (filters[field] && questionValue !== filters[field]) return false;
+      }
     if (filters.weakOnly && !weakLabels.has(question.topic)) return false;
     return true;
   });

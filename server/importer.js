@@ -8,6 +8,24 @@ const QUESTION_TYPES = new Set(["mcq", "dropdown", "text", "self_mark", "calcula
 const MATCH_MODES = new Set(["strict", "variants", "self_mark"]);
 const PART_TYPES = new Set(["text", "dropdown"]);
 
+const CATEGORY_LABELS = new Map([
+  ["application", "Application"],
+  ["classification", "Classification"],
+  ["definition", "Definition"],
+  ["disclosure", "Disclosure"],
+  ["measurement", "Measurement"],
+  ["presentation", "Presentation"],
+  ["recognition", "Recognition"],
+  ["standard", "Standard"],
+  ["standards recall", "Standards recall"]
+]);
+
+function normalizeCategory(value) {
+  const trimmed = String(value ?? "").trim();
+  const key = trimmed.toLowerCase().replace(/\s+/g, " ");
+  return CATEGORY_LABELS.get(key) || trimmed;
+}
+
 export function makeQuestionId(row) {
   if (row.id) return String(row.id).trim();
   const stable = [row.question, row.standard, row.topic, row.category].map((item) => String(item ?? "").trim()).join("|");
@@ -76,7 +94,7 @@ export function normalizeQuestionRow(input) {
     standard: String(row.standard ?? "").trim(),
     topic: String(row.topic ?? "").trim(),
     subtopic: String(row.subtopic ?? "").trim(),
-    category: String(row.category ?? "").trim(),
+    category: normalizeCategory(row.category),
     choices: splitList(row.choices).join("|"),
     accepted_answers: splitList(row.accepted_answers).join("|"),
     parts: JSON.stringify(parts),
