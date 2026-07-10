@@ -1,0 +1,89 @@
+# Question bank
+
+## Browse by topic
+
+- [IAS 8 Accounting Policies](topics/ias-8-accounting-policies.md) — 2 extracted question(s); Course Book chapter 2
+- [Additional performance measures (APMs)](topics/additional-performance-measures-apms.md) — 1 extracted question(s); Course Book chapter 18
+- [Associates](topics/associates.md) — 4 extracted question(s); Course Book chapter 11–13
+- [IFRS 3 Business combinations](topics/ifrs-3-business-combinations.md) — 10 extracted question(s); Course Book chapter 11–16
+- [Conceptual Framework](topics/conceptual-framework.md) — 7 extracted question(s); Course Book chapter 1
+- [Consolidated statement of cash flows](topics/consolidated-statement-of-cash-flows.md) — 4 extracted question(s); Course Book chapter 17
+- [Current issues](topics/current-issues.md) — 6 extracted question(s); Course Book chapter 19, 21
+- [IAS 12 Deferred tax](topics/ias-12-deferred-tax.md) — 5 extracted question(s); Course Book chapter 7
+- [Disposals of investments](topics/disposals-of-investments.md) — 4 extracted question(s); Course Book chapter 13
+- [Ethics](topics/ethics.md) — 7 extracted question(s); Course Book chapter 2
+- [IAS 10 Events after the reporting period](topics/ias-10-events-after-the-reporting-period.md) — 2 extracted question(s); Course Book chapter 8
+- [Employee benefits (including pensions)](topics/employee-benefits-including-pensions.md) — 6 extracted question(s); Course Book chapter 5
+- [IFRS 13 Fair value measurement](topics/ifrs-13-fair-value-measurement.md) — 5 extracted question(s); Course Book chapter 4
+- [IFRS 9 Financial instruments](topics/ifrs-9-financial-instruments.md) — 14 extracted question(s); Course Book chapter 6
+- [IAS 21 Foreign transactions and entities](topics/ias-21-foreign-transactions-and-entities.md) — 3 extracted question(s); Course Book chapter 16
+- [IFRS for SMEs Accounting Standards](topics/ifrs-for-smes-accounting-standards.md) — 2 extracted question(s); Course Book chapter 20
+- [IFRS Practice Statement 1 Management Commentary](topics/ifrs-practice-statement-1-management-commentary.md) — 1 extracted question(s); Course Book chapter 19
+- [IFRS Practice Statement 2 Making Materiality Judgments](topics/ifrs-practice-statement-2-making-materiality-judgments.md) — 5 extracted question(s); Course Book chapter 1
+- [IAS 36 Impairment](topics/ias-36-impairment.md) — 6 extracted question(s); Course Book chapter 4
+- [IAS 38 Intangible assets](topics/ias-38-intangible-assets.md) — 10 extracted question(s); Course Book chapter 4
+- [IAS 40 Investment property](topics/ias-40-investment-property.md) — 4 extracted question(s); Course Book chapter 4
+- [IFRS 11 Joint arrangements](topics/ifrs-11-joint-arrangements.md) — 4 extracted question(s); Course Book chapter 15
+- [IFRS 16 Leases](topics/ifrs-16-leases.md) — 7 extracted question(s); Course Book chapter 9
+- [IFRS 5 Non-current assets held for sale and discontinued operations](topics/ifrs-5-non-current-assets-held-for-sale-and-discontinued-operations.md) — 5 extracted question(s); Course Book chapter 14
+- [Provisions, contingent liabilities and contingent assets](topics/provisions-contingent-liabilities-and-contingent-assets.md) — 8 extracted question(s); Course Book chapter 8
+- [IAS 24 Related party transactions](topics/ias-24-related-party-transactions.md) — 4 extracted question(s); Course Book chapter 2
+- [IFRS 15 Revenue recognition](topics/ifrs-15-revenue-recognition.md) — 8 extracted question(s); Course Book chapter 3
+- [IFRS 8 Operating segments](topics/ifrs-8-operating-segments.md) — 2 extracted question(s); Course Book chapter 19
+- [IFRS 2 Share-based payment](topics/ifrs-2-share-based-payment.md) — 1 extracted question(s); Course Book chapter 10
+- [IFRS 10 Step acquisitions](topics/ifrs-10-step-acquisitions.md) — 1 extracted question(s); Course Book chapter 12
+- [Sustainability](topics/sustainability.md) — 4 extracted question(s); Course Book chapter 19
+
+## Browse by question number
+
+- [Question 11: Robby (Jun 2012, amended) (59 mins)](questions/Q011-robby-jun-2012-amended-59-mins.md) — IFRS 3 Business combinations, Conceptual Framework, IFRS 11 Joint arrangements
+- [Question 12: Hill (Specimen exam 2) (59 mins)](questions/Q012-hill-specimen-exam-2-59-mins.md) — Associates, IFRS 3 Business combinations, Consolidated statement of cash flows, IAS 12 Deferred tax, Disposals of investments, IFRS 9 Financial instruments
+- [Question 13: Sugar Co (Sep/Dec 2020, amended) (59 mins)](questions/Q013-sugar-co-sep-dec-2020-amended-59-mins.md) — Associates, IFRS 3 Business combinations, Consolidated statement of cash flows, IFRS 9 Financial instruments, IFRS 10 Step acquisitions
+- [Question 14: Hummings Co (Mar 2020, amended) (59 mins)](questions/Q014-hummings-co-mar-2020-amended-59-mins.md) — IFRS 3 Business combinations, IFRS 9 Financial instruments, IAS 21 Foreign transactions and entities
+- [Question 15: Luna Co (Mar/Jun 2023) (59 mins)](questions/Q015-luna-co-mar-jun-2023-59-mins.md) — IFRS 3 Business combinations, Disposals of investments, IFRS 11 Joint arrangements
+- [Question 16: Kabelo Co (Dec 2023) (59 mins)](questions/Q016-kabelo-co-dec-2023-59-mins.md) — IFRS 3 Business combinations, Consolidated statement of cash flows, Disposals of investments
+- [Question 17: Columbia Co (Mar/Jun 2021) (59 mins)](questions/Q017-columbia-co-mar-jun-2021-59-mins.md) — IFRS 3 Business combinations, Employee benefits (including pensions)
+- [Question 18: Layout Co (Sep/Dec 2024) (59 mins)](questions/Q018-layout-co-sep-dec-2024-59-mins.md) — Associates, IFRS 3 Business combinations, Employee benefits (including pensions)
+- [Question 19: Carbise (Mar/Jun 2019) (59 mins)](questions/Q019-carbise-mar-jun-2019-59-mins.md) — IFRS 3 Business combinations, Disposals of investments, IAS 21 Foreign transactions and entities
+- [Question 20: Cutherd Co (Mar/June 2023) (39 mins)](questions/Q020-cutherd-co-mar-june-2023-39-mins.md) — Ethics, IAS 38 Intangible assets
+- [Question 21: Dario Co (39 mins)](questions/Q021-dario-co-39-mins.md) — Ethics
+- [Question 22: Bismuth Co (Mar/Jun 2021) (39 mins)](questions/Q022-bismuth-co-mar-jun-2021-39-mins.md) — Ethics, IFRS 9 Financial instruments, IAS 36 Impairment
+- [Question 23: Calibra Co (Sep/Dec 2020) (39 mins)](questions/Q023-calibra-co-sep-dec-2020-39-mins.md) — Ethics, IFRS 15 Revenue recognition
+- [Question 24: Gustoso (Specimen exam 2) (39 mins)](questions/Q024-gustoso-specimen-exam-2-39-mins.md) — Ethics, IFRS 9 Financial instruments, Provisions, contingent liabilities and contingent assets
+- [Question 25: Bagshot Co (Mar 2020) (39 mins)](questions/Q025-bagshot-co-mar-2020-39-mins.md) — Ethics, Provisions, contingent liabilities and contingent assets, IAS 24 Related party transactions
+- [Question 26: Apaniiwa Co (Sep/Dec 2024) (39 mins)](questions/Q026-apaniiwa-co-sep-dec-2024-39-mins.md) — Consolidated statement of cash flows, IAS 12 Deferred tax, Ethics, Sustainability
+- [Question 27: Benito Co (Mar/Jun 2023) (49 mins)](questions/Q027-benito-co-mar-jun-2023-49-mins.md) — Current issues
+- [Question 28: Symbal Co (Sep/Dec 2021) (49 mins)](questions/Q028-symbal-co-sep-dec-2021-49-mins.md) — Current issues, Employee benefits (including pensions), IFRS 9 Financial instruments, IAS 38 Intangible assets, Provisions, contingent liabilities and contingent assets
+- [Question 29: Colat Co (Mar/Jun 2021) (49 mins)](questions/Q029-colat-co-mar-jun-2021-49-mins.md) — IAS 36 Impairment, Sustainability
+- [Question 30: Kimimila Co (Sep/Dec 2024) (49 mins)](questions/Q030-kimimila-co-sep-dec-2024-49-mins.md) — Employee benefits (including pensions), IFRS for SMEs Accounting Standards
+- [Question 31: Ecoma Co (Mar 2020, amended) (49 mins)](questions/Q031-ecoma-co-mar-2020-amended-49-mins.md) — Current issues, Employee benefits (including pensions), IFRS 16 Leases, Provisions, contingent liabilities and contingent assets, Sustainability
+- [Question 32: Skizer (Sep 2018, amended) (49 mins)](questions/Q032-skizer-sep-2018-amended-49-mins.md) — IAS 8 Accounting Policies, Conceptual Framework, IAS 38 Intangible assets
+- [Question 33: Holls (Dec 2018) (49 mins)](questions/Q033-holls-dec-2018-49-mins.md) — IAS 12 Deferred tax, IFRS Practice Statement 1 Management Commentary
+- [Question 34: Kiki Co (Specimen exam 2) (49 mins)](questions/Q034-kiki-co-specimen-exam-2-49-mins.md) — IAS 8 Accounting Policies, Additional performance measures (APMs), IFRS 15 Revenue recognition
+- [Question 35: Eloa Co (Mar/Jun 2023) (49 mins)](questions/Q035-eloa-co-mar-jun-2023-49-mins.md) — IFRS 8 Operating segments
+- [Question 36: Klancet (49 mins)](questions/Q036-klancet-49-mins.md) — Conceptual Framework, IFRS Practice Statement 2 Making Materiality Judgments, IAS 38 Intangible assets, IFRS 8 Operating segments
+- [Question 37: Bohai Co (Mar/Jun 2022) (49 mins)](questions/Q037-bohai-co-mar-jun-2022-49-mins.md) — IAS 12 Deferred tax, IAS 36 Impairment, IFRS 16 Leases, IFRS 15 Revenue recognition
+- [Question 38: Stem Co (Sep/Dec 2021) (49 mins)](questions/Q038-stem-co-sep-dec-2021-49-mins.md) — Associates, IFRS 11 Joint arrangements
+- [Question 39: Sitka Co (Mar/Jun 2021) (49 mins)](questions/Q039-sitka-co-mar-jun-2021-49-mins.md) — IFRS 13 Fair value measurement, IAS 38 Intangible assets, IFRS 16 Leases, IFRS 15 Revenue recognition
+- [Question 40: Leria Co (Mar 2020) (49 mins)](questions/Q040-leria-co-mar-2020-49-mins.md) — IAS 38 Intangible assets, IFRS 16 Leases, IFRS 5 Non-current assets held for sale and discontinued operations
+- [Question 41: Corbel Co (Sep/Dec 2020) (49 mins)](questions/Q041-corbel-co-sep-dec-2020-49-mins.md) — IAS 36 Impairment, IAS 38 Intangible assets, IFRS 5 Non-current assets held for sale and discontinued operations
+- [Question 42: Fill (Dec 2018) (49 mins)](questions/Q042-fill-dec-2018-49-mins.md) — Conceptual Framework, IAS 36 Impairment
+- [Question 43: Zedtech (Mar/Jun 2019, amended) (49 mins)](questions/Q043-zedtech-mar-jun-2019-amended-49-mins.md) — IFRS 16 Leases, IFRS 15 Revenue recognition
+- [Question 44: Calendar Co (Specimen exam 2) (49 mins)](questions/Q044-calendar-co-specimen-exam-2-49-mins.md) — IFRS Practice Statement 2 Making Materiality Judgments, IAS 38 Intangible assets, IFRS 16 Leases, IFRS 15 Revenue recognition
+- [Question 45: Fernanda Co (Mar/June 2023) (49 mins)](questions/Q045-fernanda-co-mar-june-2023-49-mins.md) — Conceptual Framework, Current issues, IFRS 9 Financial instruments, IAS 36 Impairment, Provisions, contingent liabilities and contingent assets
+- [Question 46: Egin group (Jun 2006, amended) (49 mins)](questions/Q046-egin-group-jun-2006-amended-49-mins.md) — Current issues, IFRS Practice Statement 2 Making Materiality Judgments, IAS 24 Related party transactions, Sustainability
+- [Question 47: Alexandra (Jun 2012, amended) (49 mins)](questions/Q047-alexandra-jun-2012-amended-49-mins.md) — IFRS 9 Financial instruments, IFRS Practice Statement 2 Making Materiality Judgments, IAS 24 Related party transactions
+- [Question 48: Jacinta Co (Dec 2023) (49 mins)](questions/Q048-jacinta-co-dec-2023-49-mins.md) — Unclassified
+- [Question 49: Pensions (Dec 2007, amended) (49 mins)](questions/Q049-pensions-dec-2007-amended-49-mins.md) — Employee benefits (including pensions), Provisions, contingent liabilities and contingent assets
+- [Question 50: Jayach (49 mins)](questions/Q050-jayach-49-mins.md) — Conceptual Framework, Current issues, IFRS 13 Fair value measurement, IFRS Practice Statement 2 Making Materiality Judgments, Provisions, contingent liabilities and contingent assets
+- [Question 51: Emcee (Mar/Jun 2016, amended) (49 mins)](questions/Q051-emcee-mar-jun-2016-amended-49-mins.md) — IFRS 13 Fair value measurement, IAS 38 Intangible assets, IFRS 5 Non-current assets held for sale and discontinued operations, IAS 24 Related party transactions
+- [Question 52: Evolve (Sep/Dec 2016, amended) (49 mins)](questions/Q052-evolve-sep-dec-2016-amended-49-mins.md) — IAS 10 Events after the reporting period, IFRS 9 Financial instruments, IAS 40 Investment property, IFRS 5 Non-current assets held for sale and discontinued operations
+- [Question 53: Gasnature (Sep/Dec 2015, amended) (49 mins)](questions/Q053-gasnature-sep-dec-2015-amended-49-mins.md) — IAS 10 Events after the reporting period, IFRS 9 Financial instruments, IFRS 11 Joint arrangements
+- [Question 54: Cadnam Co (Dec 2009, amended) (49 mins)](questions/Q054-cadnam-co-dec-2009-amended-49-mins.md) — IFRS 9 Financial instruments
+- [Question 55: Carsoon (Mar/Jun 2017, amended) (49 mins)](questions/Q055-carsoon-mar-jun-2017-amended-49-mins.md) — IFRS 13 Fair value measurement, IFRS 9 Financial instruments, IFRS 16 Leases
+- [Question 56: Leigh (Jun 2007, amended) (49 mins)](questions/Q056-leigh-jun-2007-amended-49-mins.md) — IFRS 2 Share-based payment
+- [Question 57: Mehran (Mar/Jun 2016, amended) (49 mins)](questions/Q057-mehran-mar-jun-2016-amended-49-mins.md) — IFRS 13 Fair value measurement, IFRS 9 Financial instruments
+- [Question 58: Ethan (Dec 2012, amended) (49 mins)](questions/Q058-ethan-dec-2012-amended-49-mins.md) — IAS 12 Deferred tax, IFRS 9 Financial instruments, IAS 40 Investment property
+- [Question 59: Whitebirk (Dec 2010, amended) (43 mins)](questions/Q059-whitebirk-dec-2010-amended-43-mins.md) — IFRS 3 Business combinations, IFRS for SMEs Accounting Standards, IAS 38 Intangible assets, IAS 40 Investment property
+- [Question 60: Revenue recognition (49 mins)](questions/Q060-revenue-recognition-49-mins.md) — Provisions, contingent liabilities and contingent assets, IFRS 15 Revenue recognition
+- [Question 61: Cial Co (Sep/Dec 2024) (49 mins)](questions/Q061-cial-co-sep-dec-2024-49-mins.md) — Conceptual Framework, IAS 21 Foreign transactions and entities, IAS 40 Investment property, IFRS 5 Non-current assets held for sale and discontinued operations, IFRS 15 Revenue recognition
